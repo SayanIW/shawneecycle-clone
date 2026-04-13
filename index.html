@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powersports & Motorcycle Dealer near Kansas City MO | Shawnee Cycle Plaza</title>
+    <meta name="description"
+        content="Visit Shawnee Cycle Plaza for the best selection of motorcycles, ATVs, and side-by-sides in the Kansas City area. Honda, Kawasaki, Yamaha, and more!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #AD0000;
+            --primary-red-hover: #8A0000;
+            --black: #000000;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #777777;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --font-main: 'Work Sans', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --container-width: 1240px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            letter-spacing: 0.8px;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 30px;
+        }
+
+        .top-bar-info i {
+            color: var(--primary-red);
+            margin-right: 8px;
+        }
+
+        .top-bar-social {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--medium-gray);
+        }
+
+        .top-bar-social a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--black);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .main-nav li a {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+            color: var(--white);
+        }
+
+        .main-nav li a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            height: 680px;
+            background-color: #000;
+        }
+
+        .hero-slider {
+            flex: 1.6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 80px;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 600px;
+        }
+
+        .slide-content h2 {
+            font-size: 56px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-sidebar {
+            flex: 1;
+            background-color: var(--white);
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-sidebar h2 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .hero-sidebar h2 span {
+            color: var(--primary-red);
+        }
+
+        .hero-sidebar .subtitle {
+            font-weight: 700;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 20px 25px;
+            border: 2px solid #f2f2f2;
+            background: #fdfdfd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: var(--font-main);
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .sidebar-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .sidebar-item {
+            border: 1px solid #f2f2f2;
+            padding: 22px 15px;
+            border-radius: 4px;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .sidebar-item:hover {
+            border-color: var(--primary-red);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .sidebar-item i {
+            display: block;
+            font-size: 32px;
+            color: var(--primary-red);
+            margin-bottom: 12px;
+        }
+
+        .sidebar-item span {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Brands Bar - Card Style */
+        .brands-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .brand-card {
+            border: 1px solid #eee;
+            padding: 30px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .brand-card:hover {
+            border-color: var(--primary-red);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand-card img {
+            max-height: 45px;
+            filter: grayscale(1);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .brand-card:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .brand-text {
+            font-weight: 900;
+            font-size: 20px;
+            color: #444;
+            letter-spacing: -1px;
+        }
+
+        .brand-card:hover .brand-text {
+            color: var(--black);
+        }
+
+        /* Feature Sections Titles Above Image */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--light-gray);
+        }
+
+        .head-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .head-flex h2 {
+            font-size: 40px;
+            font-weight: 950;
+            text-transform: uppercase;
+        }
+
+        .head-flex h2 span {
+            color: var(--primary-red);
+        }
+
+        .unit-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .unit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .unit-details {
+            padding: 30px;
+            order: 1;
+        }
+
+        .unit-title {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            min-height: 52px;
+        }
+
+        .unit-price {
+            color: var(--primary-red);
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .unit-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            order: 2;
+            position: relative;
+        }
+
+        .unit-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-red);
+            color: white;
+            padding: 6px 15px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .unit-footer {
+            padding: 20px 30px 30px;
+            order: 3;
+        }
+
+        /* FAQ Section Refinement */
+        .faq-grid-custom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-box {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .faq-icon-circle {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .faq-content h3 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .faq-content p {
+            color: var(--medium-gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Footer Refinement */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            padding: 100px 0 20px;
+        }
+
+        .f-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .f-col h4 {
+            color: white;
+            font-size: 17px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .f-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 35px;
+            height: 3px;
+            background: var(--primary-red);
+        }
+
+        .f-links li {
+            margin-bottom: 12px;
+        }
+
+        .f-links a {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .f-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .f-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .f-social a {
+            width: 40px;
+            height: 40px;
+            background: #1a1a1a;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+
+        .f-social a:hover {
+            background: var(--primary-red);
+        }
+
+        .f-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .hero-slider {
+                height: 400px;
+            }
+
+            .hero-sidebar {
+                padding: 40px;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .faq-grid-custom {
+                grid-template-columns: 1fr;
+            }
+
+            .f-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .head-flex h2 {
+                font-size: 32px;
+            }
+
+            .f-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .f-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone"></i> SALES: (913) 764-5151</span>
+                <span><i class="fas fa-map-marker-alt"></i> 16212 S Rogers Rd, Olathe, KS 66062</span>
+            </div>
+            <div class="top-bar-social">
+                <span>FOLLOW US:</span>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="https://shawneecycle.com/logo.png" alt="Shawnee Cycle Plaza">
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">New Inventory</a></li>
+                    <li><a href="#">Pre-Owned</a></li>
+                    <li><a href="#">Dealers Information</a></li>
+                    <li><a href="#">Customer Corner</a></li>
+                    <li><a href="#">Service & Parts</a></li>
+                    <li><a href="#">Financing</a></li>
+                </ul>
+            </nav>
+            <div style="font-weight: 900; color: var(--primary-red); cursor: pointer;"><i class="fas fa-search"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f91eb1c08d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');">
+                <div class="slide-content">
+                    <h2>KANSAS CITY'S PREMIER POWERSYPORTS DEALER</h2>
+                    <a href="#" class="btn btn-primary">Browse New Units</a>
+                </div>
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');">
+                <div class="slide-content">
+                    <h2>READY FOR YOUR NEXT ADVENTURE?</h2>
+                    <a href="#" class="btn btn-primary">View Pre-Owned</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-sidebar">
+            <h2>FIND YOUR<br><span>MACHINE!</span></h2>
+            <div class="subtitle">Search Our Live Inventory</div>
+            <div class="search-container">
+                <input type="text" placeholder="Search by Model, Make or VIN">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sidebar-grid">
+                <a href="#" class="sidebar-item"><i class="fas fa-motorcycle"></i><span>New Inventory</span></a>
+                <a href="#" class="sidebar-item"><i class="fas fa-motorcycle"></i><span>Used Inventory</span></a>
+                <a href="#" class="sidebar-item"><i class="fas fa-tools"></i><span>Schedule Service</span></a>
+                <a href="#" class="sidebar-item"><i class="fas fa-cog"></i><span>Order Parts</span></a>
+                <a href="#" class="sidebar-item"><i class="fas fa-star"></i><span>Trusted Reviews</span></a>
+                <a href="#" class="sidebar-item"><i class="fas fa-percent"></i><span>Service Specials</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="container brands-grid">
+            <div class="brand-card"><img src="https://1000logos.net/wp-content/uploads/2020/06/Yamaha-Logo-1987.png"
+                    alt="Yamaha"></div>
+            <div class="brand-card"><span class="brand-text">CFMOTO</span></div>
+            <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg"
+                    alt="Honda"></div>
+            <div class="brand-card"><img src="https://logos-world.net/wp-content/uploads/2020/11/Kawasaki-Logo.png"
+                    alt="Kawasaki"></div>
+            <div class="brand-card"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/KTM-Logo.svg/960px-KTM-Logo.svg.png?_=20140815084114"
+                    alt="KTM"></div>
+            <div class="brand-card"><span class="brand-text">KAYO</span></div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="head-flex">
+                <h2>Featured <span>Machines</span></h2>
+                <a href="#"
+                    style="font-weight: 800; color: var(--primary-red); font-size: 14px; text-transform: uppercase;">View
+                    All Machine Details <i class="fas fa-chevron-right" style="margin-left: 5px;"></i></a>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <!-- Unit 1 -->
+                <div class="unit-card">
+                    <div class="unit-details">
+                        <div class="unit-title">2024 Honda GL1800 Gold Wing Automatic DCT</div>
+                        <div class="unit-price">$14,999</div>
+                    </div>
+                    <div class="unit-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                        <div class="unit-badge">New Arrived</div>
+                    </div>
+                </div>
+                <!-- Unit 2 -->
+                <div class="unit-card">
+                    <div class="unit-details">
+                        <div class="unit-title">2023 Kawasaki Ninja 650 ABS KRT Edition</div>
+                        <div class="unit-price">$8,499</div>
+                    </div>
+                    <div class="unit-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                        <div class="unit-badge">Just In</div>
+                    </div>
+                </div>
+                <!-- Unit 3 -->
+                <div class="unit-card">
+                    <div class="unit-details">
+                        <div class="unit-title">2024 Yamaha MT-09 SP Hyper Naked</div>
+                        <div class="unit-price">$11,299</div>
+                    </div>
+                    <div class="unit-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                        <div class="unit-badge">Special Price</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="head-flex" style="justify-content: center; margin-bottom: 60px;">
+                <h2 style="font-size: 36px;">FREQUENTLY ASKED <span>QUESTIONS</span></h2>
+            </div>
+            <div class="faq-grid-custom">
+                <div class="faq-box">
+                    <div class="faq-icon-circle"><i class="fas fa-question"></i></div>
+                    <div class="faq-content">
+                        <h3>Do you offer financing on used motorcycles?</h3>
+                        <p>Yes—Shawnee Cycle provides financing on both new and used bikes with competitive rates and
+                            flexible terms. We work with various lenders to get you the best deal possible.</p>
+                    </div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-icon-circle"><i class="fas fa-question"></i></div>
+                    <div class="faq-content">
+                        <h3>Where is Shawnee Cycle located?</h3>
+                        <p>We’re located at 16212 S Rogers Rd, Olathe, KS 66062—just minutes from downtown Kansas City.
+                            Visit us for a premium selection of powersports.</p>
+                    </div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-icon-circle"><i class="fas fa-question"></i></div>
+                    <div class="faq-content">
+                        <h3>Can I bring my own parts for installation?</h3>
+                        <p>Absolutely—our service department will install any parts you supply, or you can shop our
+                            extensive range of OEM & aftermarket accessories in-store.</p>
+                    </div>
+                </div>
+                <div class="faq-box">
+                    <div class="faq-icon-circle"><i class="fas fa-question"></i></div>
+                    <div class="faq-content">
+                        <h3>How do I schedule a test ride?</h3>
+                        <p>Click the “Schedule A Test Ride” button above, choose your model and preferred time, and
+                            we'll have it ready when you arrive. Valid license and gear required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container f-grid">
+            <div class="f-col">
+                <img src="https://shawneecycle.com/logo.png" alt="Shawnee Cycle Plaza"
+                    style="height: 50px; filter: brightness(0) invert(1); margin-bottom: 25px;">
+                <p style="font-size: 13px; line-height: 1.8; color: #666;">Kansas City's premier powersports
+                    destination. Quality machines, expert service, and a passion for the ride.</p>
+                <div class="f-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <ul class="f-links">
+                    <li><a href="#">New Inventory</a></li>
+                    <li><a href="#">Pre-Owned Units</a></li>
+                    <li><a href="#">Financing Application</a></li>
+                    <li><a href="#">Service Department</a></li>
+                    <li><a href="#">Parts Counter</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Dealer Info</h4>
+                <ul class="f-links">
+                    <li><a href="#">About Shawnee Cycle</a></li>
+                    <li><a href="#">Contact Us Today</a></li>
+                    <li><a href="#">Directions & Hours</a></li>
+                    <li><a href="#">Meet Our Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Visit Our Store</h4>
+                <p style="color: #eee; font-weight: 800; margin-bottom: 10px;">Shawnee Cycle Plaza</p>
+                <p style="font-size: 14px; margin-bottom: 25px;">16212 S Rogers Rd<br>Olathe, KS 66062</p>
+                <p style="font-size: 24px; color: white; font-weight: 950; letter-spacing: -1px;">(913) 764-5151</p>
+            </div>
+        </div>
+        <div class="container f-bottom">
+            <div>&copy; 2026 Shawnee Cycle Plaza. All Rights Reserved.</div>
+            <div style="opacity: 0.6;">Designed by Antigravity AI</div>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.hero-slide');
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 6000);
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '5px 0';
+            } else {
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+    <script src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="69dcb0dab5c4e0259deba414"></script>
+</body>
+
+</html>
